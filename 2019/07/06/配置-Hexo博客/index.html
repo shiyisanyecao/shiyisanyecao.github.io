@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2019-07-06</span>
-            <span class="time">10:33:29</span>
+            <span class="time">10:51:17</span>
           </span>
           
         </div>
@@ -150,6 +150,20 @@ _config.yml：整个博客的配置
 db.json：source解析所得到的
 package.json：项目所需模块项目的配置信息</code></pre></blockquote>
 </li>
+<li>接下来就是各种配置啦…</li>
+</ul>
+<h3 id="4-搭桥到github"><a href="#4-搭桥到github" class="headerlink" title="4.搭桥到github"></a>4.搭桥到github</h3><p>创建账号什么的这里就不说了，按照流程走不会错…</p>
+<ul>
+<li>创建一个仓库，名称为yuorname.github.io，其中yourname是你的github的名称，温馨提示：只有按照这个规则创建才有效哦</li>
+<li>回到gitbash中，配置github账户信息，执行如下命令(将姓名和邮箱替换成自己的)：<blockquote>
+<pre><code>git config --global user.name &quot;shiyisanyecao&quot;
+git config --global user.email &quot;2327532812@qq.com&quot;</code></pre></blockquote>
+</li>
+<li>创建ssh，在gitbash中输入：<blockquote>
+<pre><code>ssh-keygen -t rsa -C &quot;youremail@example.com</code></pre></blockquote>
+</li>
+<li>生成ssh，然后找到 id_rsa.pub 中的内容，将ssh放到github中</li>
+<li></li>
 </ul>
 
         </div>
