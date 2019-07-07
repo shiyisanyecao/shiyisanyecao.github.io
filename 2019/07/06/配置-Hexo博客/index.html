@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2019-07-06</span>
-            <span class="time">21:58:33</span>
+            <span class="time">10:32:17</span>
           </span>
           
         </div>
@@ -130,8 +130,26 @@
 <ul>
 <li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a></li>
 <li>安装步骤：打开msi文件，双击打开，next安装，在Custom Setup这一步选择 Add to PATH，这样就不用自己去配置环境变量了，装完打开cmd，输入path就可以看到你的node是否配置在里面了。</li>
-<li>查看版本，输入命令行 node -v</li>
+<li>查看版本，输入命令行 node -v </li>
 <li>显示正确的版本后，你就安装成功了</li>
+</ul>
+<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h3><p>Hexo只要在gitBash里面安装即可</p>
+<ul>
+<li>先创建一个存放blog的文件夹，然后 cd 到该文件夹</li>
+<li>安装hexo的命令：npm install -g hexo</li>
+<li>安装完成后，查看版本：hexo -v</li>
+<li>显示正确版本后，可以执行 hexo init 进行初始化操作</li>
+<li>初始化完成后，可以看到一系列文件</li>
+<li>文件解释如下：<blockquote>
+<pre><code>node_modules：依赖包
+public：存放的是生成的页面
+scaffolds：命令生成文章等的模板
+source：用命令创建的各种文章
+themes：主题
+_config.yml：整个博客的配置
+db.json：source解析所得到的
+package.json：项目所需模块项目的配置信息</code></pre></blockquote>
+</li>
 </ul>
 
         </div>
