@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2019-07-06</span>
-            <span class="time">11:17:50</span>
+            <span class="time">11:19:19</span>
           </span>
           
         </div>
@@ -118,7 +118,7 @@
         <div class="post-content">
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实去年夏天就接触过博客了，只是搭建好之后就没有去深究它。前段时间忙面试的事情就发现身边的同学简历上都有博客，抱着好奇的心态去看看他们博客上都有哪些内容，结果发现他们将学习中的点点滴滴都记录在博客上了，我发现这也是一个不错的方式，可以供自己还有其他人去学习你的经历与领悟。于是，我决定也开始玩一玩博客了。于是，就有了第一篇文章，记录搭建博客的过程。</p>
 <p>在搭建博客前，你需要完成以下内容…</p>
-<p>1.安装Git<br>2.安装NodeJS<br>3.安装Hexo<br>4.生成本机SSH并添加到Github<br>5.部署项目<br>6.上传到github<br>7.绑定到个人域名<br>8.修改及配置主题</p>
+<p>1.安装Git<br>2.安装NodeJS<br>3.安装Hexo<br>4.生成本机SSH并添加到Github<br>5.部署项目<br>6.上传到github<br>7.修改及配置主题</p>
 <h2 id="开始啦"><a href="#开始啦" class="headerlink" title="开始啦"></a>开始啦</h2><h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h3><p>你可以选择不安装Git，但是这样操作起来会比较麻烦，就是每次都要打开cmd…<br>我的电脑是widows环境，在这里就介绍windows版本的安装使用了</p>
 <ul>
 <li><a href="https://gitforwindows.org" target="_blank" rel="noopener">下载地址</a></li>
@@ -163,7 +163,40 @@ git config --global user.email &quot;2327532812@qq.com&quot;</code></pre></block
 <pre><code>ssh-keygen -t rsa -C &quot;youremail@example.com</code></pre></blockquote>
 </li>
 <li>生成ssh，然后找到 id_rsa.pub 中的内容，将ssh放到github中</li>
-<li></li>
+<li>在gitbash中验证是否添加成功：<blockquote>
+<pre><code>ssh -T git@github.com</code></pre></blockquote>
+</li>
+</ul>
+<h3 id="5-部署项目"><a href="#5-部署项目" class="headerlink" title="5.部署项目"></a>5.部署项目</h3><ul>
+<li>用编辑器打开blog项目，修改 _config.yml 文件里的一些配置<blockquote>
+<pre><code>deploy:
+  type: git
+  repo: https://github.com/YourgithubName/YourgithubName.github.io.git
+  branch: master</code></pre></blockquote>
+</li>
+<li>回到gitbash中，进入你的blog目录，分别执行以下命令<blockquote>
+<pre><code>hexo clean
+hexo generate
+hexo server</code></pre></blockquote>
+</li>
+<li>打开浏览器输入：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></li>
+<li>你就可以看到自己的blog了，是不是hen激动…</li>
+</ul>
+<h3 id="6-上传到github"><a href="#6-上传到github" class="headerlink" title="6.上传到github"></a>6.上传到github</h3><ul>
+<li>先安装一波：npm install hexo-deployer-git –save</li>
+<li>执行命令：<blockquote>
+<pre><code>hexo clean
+hexo generate
+hexo deploy</code></pre></blockquote>
+</li>
+<li>在浏览器中输入：<a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a> 就可以看到你的个人博客了</li>
+<li>有没有超兴奋</li>
+</ul>
+<h3 id="7-修改及配置主题"><a href="#7-修改及配置主题" class="headerlink" title="7.修改及配置主题"></a>7.修改及配置主题</h3><p>hexo初始化后默认的主题为 landscape ，你可以去<a href="https://hexo.io/themes/" target="_blank" rel="noopener">这个地址</a>找到你想要的主题。在github中搜索你要的主题名称，按照该主题的使用介绍进行改就好了。</p>
+<h3 id="8-写文章"><a href="#8-写文章" class="headerlink" title="8.写文章"></a>8.写文章</h3><ul>
+<li>新建文章 hexo new ‘文章标题’ ，然后你就可以在 source/_posts 路径下看到你创建的文章了，编辑完成之后按照上面的方式部署</li>
+<li>可以查看<a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="noopener">官网</a></li>
+<li>markdown文件也可以自己百度到…</li>
 </ul>
 
         </div>
