@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="jxy">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="git常用命令汇总">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">git常用命令汇总</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/shiyisanyecao">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:2327532812@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By jxy</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-14</span>
+            <span class="time">11:05:15</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="Git操作"><a href="#Git操作" class="headerlink" title="Git操作"></a>Git操作</h2><h3 id="安装git后第一步"><a href="#安装git后第一步" class="headerlink" title="安装git后第一步"></a>安装git后第一步</h3><p>配置名字和邮箱，之后的每一步操作都需要这些（以我自己的为例）</p>
+<blockquote>
+<pre><code>git config --global user.name &quot;shiyisanyecao&quot;
+git config --global user.email &quot;2327532812@qq.com&quot;</code></pre></blockquote>
+<p>获取git配置信息</p>
+<blockquote>
+<pre><code>git config --list</code></pre></blockquote>
+<h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p>创建版本库其实就是创建目录，此目录里的所有文件都可以被git管理起来，每个文件的修改、删除，git都能追踪，以便出现错误时可以还原</p>
+<blockquote>
+<pre><code>mkdir demo
+cd demo
+git init</code></pre></blockquote>
+<p>创建好之后会有一个.git文件，不过该文件默认是隐藏的</p>
+<h3 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h3><blockquote>
+<pre><code>git add .
+git commit -m &apos;说明&apos;</code></pre></blockquote>
+<h3 id="仓库状态"><a href="#仓库状态" class="headerlink" title="仓库状态"></a>仓库状态</h3><blockquote>
+<pre><code>git status</code></pre></blockquote>
+<h3 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h3><p>工作区就是在电脑里能看到的目录，比如之前创建的demo就是工作区</p>
+<p>把git添加到版本库是分两步执行的：</p>
+<ul>
+<li>git add 把文件添加进去，事实上是添加到暂存区</li>
+<li>git commit提交更改，实际上是把暂存区的内容提交到当前分支</li>
+</ul>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>如果是把文件管理器里面的删了，直接执行下面命令：</p>
+<blockquote>
+<pre><code>rm readme.md</code></pre></blockquote>
+<ul>
+<li>如果你确定要从版本库中删除文件，则执行如下命令：</li>
+</ul>
+<blockquote>
+<pre><code>git rm readme.md
+git commit -m &quot;remove readme.md&quot;</code></pre></blockquote>
+<p>这样，你就从版本库中被删除了</p>
+<ul>
+<li>如果是你删错了，这时候版本库中还有，所以可以很轻松的把文件恢复</li>
+</ul>
+<blockquote>
+<pre><code>git checkout -- readme.md</code></pre></blockquote>
+<h3 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h3><p>创建SSH Key。在用户主目录下看看有木有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub文件。如果已经有了，则跳过这一步。如果没有，打开git Bash，创建SSH Key：</p>
+<blockquote>
+<pre><code>ssh-keygen -t rsa -C &quot;2327532812@qq.com&quot;</code></pre></blockquote>
+<p>之后你就可以看到目录下多了两个文件id_rsa和id_rsa.pub。id_rsa是私钥，不能告诉别人。id_rsa.pub是公钥，可以放心的告诉别人。<br>然后登陆github，进入setting，SSH Keys页面，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。<br>这样就ok了</p>
+<h3 id="远程服务器"><a href="#远程服务器" class="headerlink" title="远程服务器"></a>远程服务器</h3><blockquote>
+<pre><code>git remote add origin git@github.com:shiyisanyecao/shiyisanyecao.github.io.git
+git push -u origin master</code></pre></blockquote>
+<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><blockquote>
+<pre><code>git clone git@github.com:shiyisanyecao/shiyisanyecao.github.io.git</code></pre></blockquote>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
