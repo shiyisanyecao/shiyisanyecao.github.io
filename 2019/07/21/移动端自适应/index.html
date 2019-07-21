@@ -8,10 +8,10 @@
   <meta name="description" content>
   <meta name="author" content="沫">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="沫">
+  <meta property="og:title" content="react移动端自适应">
   <meta property="og:description" content>
   <meta property="og:site_name" content="沫">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:image" content="http://yoursite.com">
   
     <link rel="alternate" href="/atom.xml" title="沫" type="application/atom+xml">
@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">沫</p>
+          <p class="title">react移动端自适应</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -89,58 +88,55 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/2019/07/21/移动端自适应/" class="post-title">
-    react移动端自适应
-  </a>
-  <div class="date text-muted">Posted on 2019-07-21 21:04:47</div>
-</div>
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By 沫</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-21</span>
+            <span class="time">21:32:16</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>在react项目搭建完成并能成功运行的情况下</p>
+<h3 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h3><p>安装lib-flexible，postcss-px2rem</p>
+<blockquote>
+<p>npm i lib-flexible postcss-px2rem –save</p>
+</blockquote>
+<h3 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h3><p>引入lib-flexible</p>
+<p>在项目入口文件index.js文件中引入lib-flexible包</p>
+<blockquote>
+<p>import ‘lib-flexible’</p>
+</blockquote>
+<h3 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h3><p>在config/webpack.config.js文件里,进行修改</p>
+<blockquote>
+<p>const px2rem = require(‘postcss-px2rem’)</p>
+</blockquote>
+<p>plugins下:</p>
+<blockquote>
+<p>px2rem({ remUnit: 75 })  //px2rem({ remUnit: 75 })的意思就是1rem = 75px这个是根据750px设计稿来的，如果是620的就写62</p>
+</blockquote>
+<h3 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h3><p>在引用index.js的模板index.html中注释掉如下代码</p>
+<blockquote>
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+</blockquote>
+<h3 id="step5"><a href="#step5" class="headerlink" title="step5"></a>step5</h3><p>重启服务器，组件中的单位直接用px，设计稿量多少就写多少</p>
 
-      
-        <div class="archive-item">
-  <a href="/2019/07/14/git常用命令汇总/" class="post-title">
-    git常用命令汇总
-  </a>
-  <div class="date text-muted">Posted on 2019-07-14 10:30:37</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/07/06/配置-Hexo博客/" class="post-title">
-    配置 Hexo博客
-  </a>
-  <div class="date text-muted">Posted on 2019-07-06 19:37:48</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/07/06/hello-world/" class="post-title">
-    Hello World
-  </a>
-  <div class="date text-muted">Posted on 2019-07-06 17:06:46</div>
-</div>
-
-      
-
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 
