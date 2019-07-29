@@ -8,7 +8,7 @@
   <meta name="description" content>
   <meta name="author" content="沫">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="categories">
+  <meta property="og:title" content="element 分页">
   <meta property="og:description" content>
   <meta property="og:site_name" content="沫">
   <meta property="og:type" content="article">
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">categories</p>
+          <p class="title">element 分页</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,16 +99,87 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2019-07-14</span>
+            <span class="date">2019-07-29</span>
             <span class="time">21:08:46</span>
           </span>
           
         </div>
         <!-- Tags -->
         
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/element/">#element</a> <a class="tag" href="/tags/vue/">#vue</a>
+
+
+          </div>
+        
         <!-- Post Main Content -->
         <div class="post-content">
-          
+          <h3 id="贴代码"><a href="#贴代码" class="headerlink" title="贴代码"></a>贴代码</h3><p>template模块</p>
+<blockquote>
+<pre><code>&lt;el-table :data=&quot;tableData&quot; stripe border style=&quot;width: 100%;overflow: hidden&quot;&gt;
+    &lt;el-table-column prop=&quot;ip&quot; label=&quot;主机IP&quot;&gt;
+    &lt;/el-table-column&gt;
+    &lt;el-table-column prop=&quot;id&quot; label=&quot;主机id&quot;&gt;
+    &lt;/el-table-column&gt;
+    &lt;el-table-column prop=&quot;manager&quot; label=&quot;主机管理员&quot;&gt;
+    &lt;/el-table-column&gt;
+    &lt;el-table-column prop=&quot;name&quot; label=&quot;主机名&quot;&gt;
+    &lt;/el-table-column&gt;
+    &lt;el-table-column prop=&quot;passwordInfo&quot; label=&quot;主机密码&quot;&gt;
+    &lt;/el-table-column&gt;
+    &lt;el-table-column label=&quot;操作&quot; center&gt;
+        &lt;template slot-scope=&quot;scope&quot;&gt;
+            &lt;el-button @click=&quot;handleClick(scope.row)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;查看&lt;/el-button&gt;
+            &lt;el-button @click=&quot;editClick(scope.row)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;编辑&lt;/el-button&gt;
+            &lt;el-button @click=&quot;addService(scope.row)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;增加服务&lt;/el-button&gt;
+        &lt;/template&gt;
+    &lt;/el-table-column&gt;
+&lt;/el-table&gt;
+&lt;el-form style=&quot;padding-top:10px;&quot;&gt;
+    &lt;el-form-item align=&quot;center&quot;&gt;
+        &lt;el-button @click=&quot;addHostInfo()&quot;&gt;添加主机信息&lt;/el-button&gt;
+    &lt;/el-form-item&gt;
+&lt;/el-form&gt;
+&lt;el-pagination @size-change=&quot;handleSizeChange&quot; @current-change=&quot;handleCurrentChange&quot;
+        :current-page=&quot;currentPage&quot;
+        :page-sizes=&quot;[1, 5, 10, 20, 40]&quot;
+        :page-size=&quot;pagesize&quot;
+        layout=&quot;total, sizes, prev, pager, next, jumper&quot;
+        :total=&quot;total&quot;&gt;
+&lt;/el-pagination&gt;</code></pre></blockquote>
+<p>script模块</p>
+<blockquote>
+<pre><code>data() {
+    return {
+        total: 0,
+        currentPage:1, //初始页
+        pagesize:10,    //每页的数据
+    }
+}
+    getHostData() {
+      let params = new URLSearchParams();
+      params.append(&apos;page&apos;,this.currentPage);
+      params.append(&apos;size&apos;,this.pagesize);
+      axios.post(&apos;/path&apos;,params)
+          .then((res)=&gt;{
+              // console.log(res.data,&apos;datas&apos;)
+              this.tableData = res.data.content;
+              this.total = res.data.totalElements;
+      })
+  },
+    handleSizeChange: function (pagesize) {
+      this.pagesize = pagesize;
+      this.getHostData();
+      console.log(&apos;每页显示的数据&apos;,this.pagesize)  //每页下拉显示数据
+},
+handleCurrentChange: function(currentPage){
+      this.currentPage = currentPage;
+      this.getHostData();
+      console.log(&apos;第n页&apos;,this.currentPage)  //点击第几页
+}</code></pre></blockquote>
+
         </div>
       </div>
     </div>
